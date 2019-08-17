@@ -6,12 +6,6 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css';
-import BicycleDetailPage from "../../routes/BicycleDetailPage/BicycleDetailPage";
-import BicycleGalleryPage from "../../routes/BicycleGalleryPage/BicycleGalleryPage";
-import BicycleGridPage from "../../routes/BicycleGridPage/BicycleGridPage";
-import AddEditNote from "../Note/AddEditNote";
-import AddEditPosition from "../Position/AddEditPosition";
-import AddEditBicycle from "../BicycleGallery/AddEditBicycle";
 
 class App extends Component {
     state = { hasError: false }
@@ -44,56 +38,8 @@ class App extends Component {
                             path={'/register'}
                             component={RegistrationPage}
                         />
-                        <Route
-                            exact
-                            path={'/gallery'}
-                            component={BicycleGalleryPage}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/newbike'}
-                            render={(renderProps) =>
-                                (<AddEditBicycle {...renderProps} />
-                                )}
-                        />
-                        <Route
-                            exact
-                            path={'/grid'}
-                            component={BicycleGridPage}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/:bikeId'}
-                            component={BicycleDetailPage}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/:bikeId/addnote'}
-                            render={(renderProps) =>
-                                    (<AddEditNote {...renderProps} />
-                                )}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/:bikeId/editnote'}
-                            render={(renderProps) =>
-                                (<AddEditNote {...renderProps} />
-                                )}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/:bikeId/addposition'}
-                            render={(renderProps) =>
-                                (<AddEditPosition {...renderProps} />
-                                )}
-                        />
-                        <Route
-                            exact
-                            path={'/gallery/:bikeId/editposition'}
-                            render={(renderProps) =>
-                                (<AddEditPosition {...renderProps} />
-                                )}
-                        />
+
+
                         <Route
                             component={NotFoundPage}
                         />

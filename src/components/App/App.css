@@ -1,3 +1,10 @@
+cd /* Color Theme Swatches in Hex */
+.Architecture-1-hex { color: #6B87BF; }
+.Architecture-2-hex { color: #99B5D8; }
+.Architecture-3-hex { color: #3B3F18; }
+.Architecture-4-hex { color: #858C55; }
+.Architecture-5-hex { color: #F2F2F2; }
+
 .main-container {
   min-height: 100vh; /* will cover the 100% of viewport */
   overflow: hidden;
@@ -7,7 +14,11 @@
 }
 
 .background-color {
-  background-color: #dae8dd;
+  /*background-color: #6B87BF;*/
+  /*background-color: #99B5D8;*/
+  /*background-color: #3B3F18;*/
+  /*background-color: #858C55;*/
+  background-color: #F2F2F2;
 }
 
 .footer {
@@ -18,7 +29,7 @@
   bottom: 0;
   width: 100%;
   height: 40px;
-  background-color:  #779d8f;
+  background-color:  #99B5D8;
   color: #ffffff
 }
 
