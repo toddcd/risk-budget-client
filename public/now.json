@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "td3-riskbudget",
+  "name": "td3-riskbudget",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
