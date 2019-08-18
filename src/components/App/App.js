@@ -1,49 +1,66 @@
-import React, { Component } from 'react';
-import {Route, Switch} from 'react-router-dom'
+import React, {Component} from 'react';
+import {Route, Switch, BrowserRouter} from 'react-router-dom'
 import Header from '../Header/Header'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import PortfolioCollectionPage from "../../routes/PortfolioCollectionPage/PortfolioCollectionPage";
 import './App.css';
+import AddEditPortfolio from "../PortfolioCollection/AddEditPortfolio";
 
 class App extends Component {
-    state = { hasError: false }
+    state = {hasError: false}
 
     static getDerivedStateFromError(error) {
         console.error(error)
-        return { hasError: true }
+        return {hasError: true}
     }
 
-    render(){
+    render() {
         return (
             <div className="App background-color main-container">
                 <header className='App__header'>
-                    <Header />
+                    <Header/>
                 </header>
                 <main>
-                    <Switch>
-                        <Route
-                            exact
-                            path={'/'}
-                            component={LandingPage}
-                        />
-                        <Route
-                            exact
-                            path={'/login'}
-                            component={LoginPage}
-                        />
-                        <Route
-                            exact
-                            path={'/register'}
-                            component={RegistrationPage}
-                        />
-
-
-                        <Route
-                            component={NotFoundPage}
-                        />
-                    </Switch>
+                        <Switch>
+                            <Route
+                                exact
+                                path={'/'}
+                                component={LandingPage}
+                            />
+                            <Route
+                                exact
+                                path={'/login'}
+                                component={LoginPage}
+                            />
+                            <Route
+                                exact
+                                path={'/register'}
+                                component={RegistrationPage}
+                            />
+                            <Route
+                                exact
+                                path={'/collection'}
+                                component={PortfolioCollectionPage}
+                            />
+                            <Route
+                                exact
+                                path={'/collection/new-portfolio'}
+                                component={AddEditPortfolio}
+                            />
+                            <Route
+                                exact
+                                path={'/collection/:port_id'}
+                                render={(renderProps) =>
+                                    (<AddEditPortfolio {...renderProps} />
+                                    )}
+                            />
+                            <Route
+                                component={NotFoundPage}
+                            />
+                        </Switch>
                 </main>
                 <footer role="contentinfo" className='footer'>
                     <div>

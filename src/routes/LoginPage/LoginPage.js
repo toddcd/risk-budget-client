@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import PortfolioCollectionContext from "../../context/PortfolioCollectionContext";
+import { Section } from '../../components/Utils/ElementUtils'
 import './LoginPage.css'
 
 export default class LoginPage extends Component {
@@ -15,18 +16,18 @@ export default class LoginPage extends Component {
 
   handleLoginSuccess = () => {
     const { history } = this.props
-    this.context.setLoggedIn(true)
+    //this.context.setLoggedIn(true)
     history.push('/')
   }
 
   render() {
     return (
-      <section className='login-page'>
+      <Section className='login-page'>
         <h2>Login</h2>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
-      </section>
+      </Section>
     )
   }
 }

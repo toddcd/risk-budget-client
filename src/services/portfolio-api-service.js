@@ -1,7 +1,7 @@
 import config from "../config"
 import TokenService from "../services/token-service"
 
-const PorfolioApiService = {
+const PortfolioApiService = {
     getMakeData() {
         return fetch(`${config.API_ENDPOINT}/uidata/make`, {
             headers: {
@@ -184,4 +184,4 @@ const PorfolioApiService = {
     }
 }
 
-export default PorfolioApiService
+export default PortfolioApiService

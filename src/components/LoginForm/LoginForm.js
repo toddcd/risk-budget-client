@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import { Button, Input } from '../Utils/ElementUtils'
 import './LoginForm.css'
 
 export default class LoginForm extends Component {
@@ -13,25 +14,25 @@ export default class LoginForm extends Component {
 
     handleSubmitJwtAuth = ev => {
         ev.preventDefault()
-        //this.props.onLoginSuccess()
+        this.props.onLoginSuccess()
 
-        this.setState({ error: null })
-         //const { history } = this.props
-         const { user_name, password } = ev.target
-
-        AuthApiService.postLogin({
-            user_name: user_name.value,
-            password: password.value,
-        })
-            .then(res => {
-                user_name.value = ''
-                password.value = ''
-                TokenService.saveAuthToken(res.authToken)
-                this.props.onLoginSuccess()
-            })
-            .catch(res => {
-                this.setState({ error: res.error })
-            })
+        // this.setState({ error: null })
+        //  //const { history } = this.props
+        //  const { user_name, password } = ev.target
+        //
+        // AuthApiService.postLogin({
+        //     user_name: user_name.value,
+        //     password: password.value,
+        // })
+        //     .then(res => {
+        //         user_name.value = ''
+        //         password.value = ''
+        //         TokenService.saveAuthToken(res.authToken)
+        //         this.props.onLoginSuccess()
+        //     })
+        //     .catch(res => {
+        //         this.setState({ error: res.error })
+        //     })
 
     }
 
@@ -50,26 +51,26 @@ export default class LoginForm extends Component {
                     <label htmlFor='LoginForm__user_name'>
                         User name
                     </label>
-                    <input className='login-input'
+                    <Input className='login-input'
                         required
                         name='user_name'
                         id='LoginForm__user_name'>
-                    </input>
+                    </Input>
                 </div>
                 <div className='password'>
                     <label htmlFor='LoginForm__password'>
                         Password
                     </label>
-                    <input className='login-input'
+                    <Input className='login-input'
                         required
                         name='password'
                         type='password'
                         id='LoginForm__password'>
-                    </input>
+                    </Input>
                 </div>
-                <button className='login-button' type='submit'>
+                <Button className='login-button' type='submit'>
                     Login
-                </button>
+                </Button>
             </form>
             </div>
         )

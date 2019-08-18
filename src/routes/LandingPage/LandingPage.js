@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Section } from '../../components/Utils/ElementUtils'
 import Landing from '../../components/Landing/Landing'
 
 export default class LandingPage extends Component {
@@ -17,9 +18,9 @@ export default class LandingPage extends Component {
 
     render() {
         return (
-            <section className='LandingPage'>
+            <Section className='LandingPage'>
                 <Landing />
-            </section>
+            </Section>
         )
     }
 }

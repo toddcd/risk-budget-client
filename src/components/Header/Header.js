@@ -10,7 +10,7 @@ export default class Header extends Component {
 
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
-        this.context.setLoggedIn(false)
+        //this.context.setLoggedIn(false)
     }
 
     renderLogoutLink() {
@@ -18,8 +18,8 @@ export default class Header extends Component {
             <div className='Header__logged-in-container'>
                 <div className='Header__logged-in'>
                     <Link
-                        to='/gallery'>
-                        Gallery
+                        to='/collection'>
+                        Collection
                     </Link>
                 </div>
                 <div className='Header__logged-in'>
@@ -58,11 +58,11 @@ export default class Header extends Component {
                         RISK<span className='logo-span'>BUDGETING</span>
                     </Link>
                 </h1>
-                {this.context.loggedIn
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()}
-                {/*{this.renderLoginLink()}*/}
-                {/*{this.renderLogoutLink()}*/}
+                {/*{this.context.loggedIn*/}
+                {/*    ? this.renderLogoutLink()*/}
+                {/*    : this.renderLoginLink()}*/}
+                {this.renderLoginLink()}
+                {this.renderLogoutLink()}
             </nav>
         </>
     }

@@ -1,0 +1,16 @@
+.portfolio-collection-section{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 5px 0 5px 0;
+
+}
+
+.collection-container{
+
+}
+.new-portfolio{
+   align-self: center;
+   margin-bottom: 20px ;
+}

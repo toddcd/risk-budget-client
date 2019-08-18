@@ -11,30 +11,24 @@ export default class Landing extends Component {
         return (
             <div className='landing-container'>
                 <section>
-                    <div className='landing-image'>
-                        {/*<img alt='bars-logo' className='landing-image' src={require("../../images/velonoteslogo_v2.png")}/>*/}
+                    <div className='wrap'>
+                        <h1 className=''>Analyze and compare</h1>
+                        <img alt='bars' className='landing-image' src={require("../../images/adding-machine.jpg")}/>
                     </div>
-                    <header className='landing-content'>
-                        <h3>Keep track of bicycle fit data and notes</h3>
-                    </header>
                 </section>
                 <section className='landing-section'>
                     <div className='landing-image'>
                         {/*<img alt='analog-notes-top' src={require("../../images/landingtop.png")}/>*/}
                     </div>
                     <div className='landing-content'>
-                        <p>Fit and position data can help identify measurements tied to optimal performance,
-                            injury origination, or selecting a new bicycle frame or component.</p>
-                        <p>Notes can help keep a record of what and when maintenance was done or
-                            why setup changes were made.</p>
+                        <p>The Risk Budgeting Tool allows an investor to run analysis on a portfolio and use the risk and return of the underlying funds to determine the best asset allocation in order to maximize portfolio performance.</p>
                     </div>
-                    <div className='landing-image'>
-                        {/*<img alt='bars' className='landing-image' src={require("../../images/bars_v2.png")}/>*/}
-                    </div>
+
                 </section>
                 <section className='landing-section'>
                     <div className='landing-content'>
-                        <p>Register to start tracking data for your bicycle fleet!<br/><br/>
+                        <p>Analyze your portfolio and adjust the asset allocation to meet your current investment strategy.</p>
+                        <p>Register to login and get started<br/><br/>
                             Or login with the demo account and take a look!<br/>
                             (username: demo, password: Password1!)</p>
                     </div>

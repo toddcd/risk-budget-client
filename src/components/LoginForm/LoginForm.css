@@ -4,32 +4,6 @@
     align-items: center;
 }
 
-.login-button {
-    background-color: #9ba59d;
-    font-size: 1.1em;
-    min-width: 75px;
-    padding: 5px;
-    margin: 5px;
-    font-weight: bold;
-    box-shadow: none;
-    border-radius: 3px;
-    border: 0;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-.login-input {
-    border: 1px solid #ddd;
-    display: block;
-    font-size: 1em;
-    max-height: 35px;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: left;
-    width: 100%;
-    border-radius: 4px;
-}
-
 .login-form {
     width: 80%;
     max-width: 550px;
