@@ -36,7 +36,7 @@ export default class PortfolioCollection extends Component {
                     <Link to={{
                         pathname: `/collection/${portfolio.port_id}`,
                         state: {
-                            editportfolio: this.props.portfolio
+                            port_id: portfolio.port_id
                         }
                     }}>
                         <button className='delete-edit-button' data-id={1}>Edit</button>
