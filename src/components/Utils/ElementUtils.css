@@ -38,6 +38,7 @@ cd /* Color Theme Swatches in Hex */
 .Button {
   border: 1px solid #F2F2F2;
   background-color: #858C55;
+  min-width: 120px;
   color: #ffffff;
   font-size: 1.1em;
   border-radius: 4px;

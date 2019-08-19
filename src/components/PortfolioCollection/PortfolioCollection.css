@@ -38,7 +38,6 @@ cd /* Color Theme Swatches in Hex */
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-width: 200px;
     padding: 5px 0 0 0;
 }
 .fund-detail {

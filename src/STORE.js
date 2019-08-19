@@ -9,25 +9,25 @@ function portfolioCollection() {
                     fund_id: 1,
                     ticker: 'EA',
                     name: "Electronic Arts Inc",
-                    weight: '0.013754045307443',
-                    expected_return: '0.013764705882353',
-                    expected_risk: '0.281241476535797'
+                    weight: '0.014',
+                    expected_return: '0.014',
+                    expected_risk: '0.281'
                 },
                 {
                     fund_id: 2,
                     ticker: 'BIDU',
                     name: "Baidu Inc",
-                    weight: '0.017799352750809',
-                    expected_return: '0.023181818181818',
-                    expected_risk: '0.330503076314926'
+                    weight: '0.018',
+                    expected_return: '0.023',
+                    expected_risk: '0.330'
                 },
                 {
                     fund_id: 3,
                     ticker: 'SPOT',
                     name: "Spotify Technology SA",
-                    weight: '0.019902912621359',
-                    expected_return: '0.021138211382114',
-                    expected_risk: '0.400000000000000'
+                    weight: '0.012',
+                    expected_return: '0.021',
+                    expected_risk: '0.4'
                 },
             ]
         },
@@ -40,25 +40,25 @@ function portfolioCollection() {
                     fund_id: 1,
                     ticker: 'EA',
                     name: "Electronic Arts Inc",
-                    weight: '0.013754045307443',
-                    expected_return: '0.013764705882353',
-                    expected_risk: '0.281241476535797'
+                    weight: '0.013',
+                    expected_return: '0.013',
+                    expected_risk: '0.281'
                 },
                 {
                     fund_id: 2,
                     ticker: 'BIDU',
                     name: "Baidu Inc",
-                    weight: '0.017799352750809',
-                    expected_return: '0.023181818181818',
-                    expected_risk: '0.330503076314926'
+                    weight: '0.017',
+                    expected_return: '0.023',
+                    expected_risk: '0.330'
                 },
                 {
                     fund_id: 3,
                     ticker: 'SPOT',
                     name: "Spotify Technology SA",
-                    weight: '0.019902912621359',
-                    expected_return: '0.021138211382114',
-                    expected_risk: '0.400000000000000'
+                    weight: '0.019',
+                    expected_return: '0.021',
+                    expected_risk: '0.4'
                 },
             ]
         },
@@ -72,24 +72,24 @@ function portfolioCollection() {
                     ticker: 'EA',
                     name: "Electronic Arts Inc",
                     weight: '0.013754045307443',
-                    expected_return: '0.013764705882353',
-                    expected_risk: '0.281241476535797'
+                    expected_return: '0.013',
+                    expected_risk: '0.281'
                 },
                 {
                     fund_id: 2,
                     ticker: 'BIDU',
                     name: "Baidu Inc",
-                    weight: '0.017799352750809',
-                    expected_return: '0.023181818181818',
-                    expected_risk: '0.330503076314926'
+                    weight: '0.017',
+                    expected_return: '0.023',
+                    expected_risk: '0.330'
                 },
                 {
                     fund_id: 3,
                     ticker: 'SPOT',
                     name: "Spotify Technology SA",
-                    weight: '0.019902912621359',
-                    expected_return: '0.021138211382114',
-                    expected_risk: '0.400000000000000'
+                    weight: '0.019',
+                    expected_return: '0.021',
+                    expected_risk: '0.4'
                 },
             ]
         }
