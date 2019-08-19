@@ -1,3 +1,10 @@
+cd /* Color Theme Swatches in Hex */
+.Architecture-1-hex { color: #6B87BF; }
+.Architecture-2-hex { color: #99B5D8; }
+.Architecture-3-hex { color: #3B3F18; }
+.Architecture-4-hex { color: #858C55; }
+.Architecture-5-hex { color: #F2F2F2; }
+
 .landing-container{
     display: flex;
     flex-direction: column;
@@ -22,23 +29,49 @@
     max-width: 650px;
 }
 
-.wrap {
-    width: 100%;
-    height:auto;
-    margin: auto;
-    text-align:center;
-    position:relative;
+.step-section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+.step-list {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.step-image{
+    min-width: 300px;
+    flex: 1;
+}
+
+.question {
+    margin: 50px 0 50px 0;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: start;
+    color: #ffffff;
+    margin: 2px 0 2px 0;
+    background-color: #858C55;
+    height: 100%;
+    min-height: 50px;
     border-radius: 5px;
 }
-.text_over_image {
-    position: absolute;
-    margin: auto;
-    font-size: 32px;
-    top: 0;
-    left:0;
-    right:0;
-    bottom:0;
-    color:#858C55;
-    background-color: #F2F2F2;
-    height:75px;
+
+.step-num {
+    font-size: 20px;
+    padding: 10px 15px 10px 15px;
+    margin: 2px 20px 2px 30px;
+    color: #ffffff;
+    background-color: #6B87BF;
+    border: 1px solid #3B3F18;
+    border-radius: 50%;
+
+
 }
