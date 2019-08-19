@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './Landing.css'
+import {Button} from "../Utils/ElementUtils";
 
 export default class Landing extends Component {
     static defaultProps = {
@@ -46,11 +47,18 @@ export default class Landing extends Component {
                         <img alt='analog-notes-bottom' className='landing-image' src={require("../../images/burroughs.jpg")}/>
                     </div>
                     <div className='bottom-section-right'>
-                        <p>Analyze your portfolio and adjust the asset allocation to meet your current investment
-                            strategy.</p>
-                        <p>Register to login and get started<br/><br/>
-                            Or login with the demo account and take a look!<br/>
+                        <span className='question'>Ready to get started?</span>
+                        <div>
+                            <p>Register to login</p><br/>
+                            <Button>Register</Button>
+                            <p>Or login with the demo account and take a look!<br/>
                             (username: demo, password: Password1!)</p>
+                            <Button>Login</Button>
+                        </div>
+                            <div className='download'>
+                                <p>Download CSV portfolio template</p><br/>
+                            <Button>Download</Button>
+                        </div>
                     </div>
                 </section>
             </div>
