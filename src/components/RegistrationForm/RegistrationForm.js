@@ -15,8 +15,8 @@ export default class RegistrationForm extends Component {
         ev.preventDefault()
         const {full_name, user_name, password} = ev.target
 
-
         this.setState({error: null})
+
         AuthApiService.postRegistration({
             user_name: user_name.value,
             password: password.value,
