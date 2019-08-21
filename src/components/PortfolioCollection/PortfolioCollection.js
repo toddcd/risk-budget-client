@@ -43,7 +43,6 @@ export default class PortfolioCollection extends Component {
                     </Link>
                     <button className='delete-edit-button' data-id={1} onClick={this.props.deletePortfolio}>Delete
                     </button>
-
                     <div className='holdings-content'>
                         {portfolio.funds.map(fund => {
                             return (

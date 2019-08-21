@@ -20,6 +20,7 @@ export default class AddEditPortfolio extends Component {
     }
 
     handleFileUploaded = (data) => {
+        console.log(data)
         this.setState({portfolio: data})
     }
 

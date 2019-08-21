@@ -53,7 +53,7 @@ export default class Header extends Component {
     render() {
         return <>
             <nav className='Header'>
-                <h1>
+                <h1 className='header-h1'>
                     <Link to='/'>
                         RISK<span className='logo-span'>BUDGETING</span>
                     </Link>
@@ -61,7 +61,7 @@ export default class Header extends Component {
                 {/*{this.context.loggedIn*/}
                 {/*    ? this.renderLogoutLink()*/}
                 {/*    : this.renderLoginLink()}*/}
-                {this.renderLoginLink()}
+                {/*{this.renderLoginLink()}*/}
                 {this.renderLogoutLink()}
             </nav>
         </>
