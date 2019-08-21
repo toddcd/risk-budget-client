@@ -9,8 +9,8 @@ export default class Header extends Component {
     static contextType = PortfolioCollectionContext
 
     handleLogoutClick = () => {
-        TokenService.clearAuthToken()
-        //this.context.setLoggedIn(false)
+        // TokenService.clearAuthToken()
+        this.context.setLoggedIn(false)
     }
 
     renderLogoutLink() {
@@ -58,11 +58,11 @@ export default class Header extends Component {
                         RISK<span className='logo-span'>BUDGETING</span>
                     </Link>
                 </h1>
-                {/*{this.context.loggedIn*/}
-                {/*    ? this.renderLogoutLink()*/}
-                {/*    : this.renderLoginLink()}*/}
+                {this.context.loggedIn
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()}
                 {/*{this.renderLoginLink()}*/}
-                {this.renderLogoutLink()}
+                {/*{this.renderLogoutLink()}*/}
             </nav>
         </>
     }

@@ -16,10 +16,10 @@ export default class LoginForm extends Component {
         ev.preventDefault()
         this.props.onLoginSuccess()
 
-        // this.setState({ error: null })
-        //  //const { history } = this.props
-        //  const { user_name, password } = ev.target
-        //
+        this.setState({ error: null })
+        const { history } = this.props
+        const { user_name, password } = ev.target
+
         // AuthApiService.postLogin({
         //     user_name: user_name.value,
         //     password: password.value,

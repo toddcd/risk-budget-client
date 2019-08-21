@@ -15,8 +15,9 @@ export default class LoginPage extends Component {
   static contextType = PortfolioCollectionContext
 
   handleLoginSuccess = () => {
+    console.log('SUCCESS!!!!')
     const { history } = this.props
-    //this.context.setLoggedIn(true)
+    this.context.setLoggedIn(true)
     history.push('/')
   }
 
