@@ -1,0 +1,62 @@
+.add-edit-portfolio-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-edit-portfolio-form {
+    align-self: center;
+}
+
+.cvs-fileupload-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.add-edit-fund-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top: 1px solid #858C55;
+}
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.port-name {
+    text-align: start;
+    width: 100%;
+}
+
+.fund-name {
+    flex: 1;
+    min-width: 150px;
+}
+.fund-input-group{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px 0 0 0;
+}
+
+.label-input {
+    display: flex;
+}
+
+.label-input > label{
+    align-self: center;
+    width: 100px;
+}
+
+.label-input > input{
+    width: 150px;
+}

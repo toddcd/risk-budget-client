@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Required} from '../Utils/Utils'
+import { Button, Input, Required } from '../Utils/ElementUtils'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
 
@@ -15,8 +15,8 @@ export default class RegistrationForm extends Component {
         ev.preventDefault()
         const {full_name, user_name, password} = ev.target
 
-
         this.setState({error: null})
+
         AuthApiService.postRegistration({
             user_name: user_name.value,
             password: password.value,
@@ -49,38 +49,38 @@ export default class RegistrationForm extends Component {
                         <label htmlFor='RegistrationForm__full_name'>
                             Full name <Required/>
                         </label>
-                        <input className='register-input'
+                        <Input className='register-input'
                                name='full_name'
                                type='text'
                                required
                                id='RegistrationForm__full_name'>
-                        </input>
+                        </Input>
                     </div>
                     <div className='user_name'>
                         <label htmlFor='RegistrationForm__user_name'>
                             User name <Required/>
                         </label>
-                        <input className='register-input'
+                        <Input className='register-input'
                                name='user_name'
                                type='text'
                                required
                                id='RegistrationForm__user_name'>
-                        </input>
+                        </Input>
                     </div>
                     <div className='password'>
                         <label htmlFor='RegistrationForm__password'>
                             Password <Required/>
                         </label>
-                        <input className='register-input'
+                        <Input className='register-input'
                                name='password'
                                type='password'
                                required
                                id='RegistrationForm__password'>
-                        </input>
+                        </Input>
                     </div>
-                    <button className='reg-button' type='submit'>
+                    <Button className='reg-button' type='submit'>
                         Register
-                    </button>
+                    </Button>
                 </form>
             </div>
         )

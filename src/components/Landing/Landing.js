@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './Landing.css'
+import {Button} from "../Utils/ElementUtils";
 
 export default class Landing extends Component {
     static defaultProps = {
@@ -10,39 +11,54 @@ export default class Landing extends Component {
     render() {
         return (
             <div className='landing-container'>
-                <section>
-                    <div className='landing-image'>
-                        {/*<img alt='bars-logo' className='landing-image' src={require("../../images/velonoteslogo_v2.png")}/>*/}
+                <section className='top-section'>
+                    <div className='top-section-left'>
+                        <span className='question'>What is risk budgeting?</span>
                     </div>
-                    <header className='landing-content'>
-                        <h3>Keep track of bicycle fit data and notes</h3>
-                    </header>
-                </section>
-                <section className='landing-section'>
-                    <div className='landing-image'>
-                        {/*<img alt='analog-notes-top' src={require("../../images/landingtop.png")}/>*/}
-                    </div>
-                    <div className='landing-content'>
-                        <p>Fit and position data can help identify measurements tied to optimal performance,
-                            injury origination, or selecting a new bicycle frame or component.</p>
-                        <p>Notes can help keep a record of what and when maintenance was done or
-                            why setup changes were made.</p>
-                    </div>
-                    <div className='landing-image'>
-                        {/*<img alt='bars' className='landing-image' src={require("../../images/bars_v2.png")}/>*/}
+                    <div className='top-section-right'>
+                        <span className='answer'>Constructing a portfolio based on the volatility of the underlying funds.</span>
                     </div>
                 </section>
-                <section className='landing-section'>
-                    <div className='landing-content'>
-                        <p>Register to start tracking data for your bicycle fleet!<br/><br/>
-                            Or login with the demo account and take a look!<br/>
+                <section className='steps-section'>
+                        <div className='steps-list'>
+                            <div className='step'>
+                                <span className='step-num'>1</span> Choose Assets
+                            </div>
+                            <div className='step'>
+                                <span className='step-num'>2</span> Assign Risk
+                            </div>
+                            <div className='step'>
+                                <span className='step-num'>3</span> Run Optimization
+                            </div>
+                        </div>
+                        <div className='steps-image'>
+                            <img alt='bars' className='landing-image' src={require("../../images/adding-machine.jpg")}/>
+                        </div>
+                </section>
+                <section className='detail-explanation-section'>
+                    <div>
+                        <p>The Risk Budgeting Tool allows an investor to run analysis on a portfolio and use the risk
+                            and return of the underlying funds to determine the best asset allocation in order to
+                            maximize portfolio performance.</p>
+                    </div>
+                </section>
+                <section className='bottom-section'>
+                    <div className='bottom-section-left'>
+                        <img alt='analog-notes-bottom' className='landing-image' src={require("../../images/burroughs.jpg")}/>
+                    </div>
+                    <div className='bottom-section-right'>
+                        <span className='question'>Ready to get started?</span>
+                        <div>
+                            <p>Register to login</p><br/>
+                            <Button>Register</Button>
+                            <p>Or login with the demo account and take a look!<br/>
                             (username: demo, password: Password1!)</p>
-                    </div>
-                    <div className='landing-image'>
-                        {/*<img alt='analog-notes-bottom' className='landing-image' src={require("../../images/landingbottom.png")}/>*/}
-                    </div>
-                    <div className='landing-image'>
-                        {/*<img alt='bars' className='landing-image' src={require("../../images/bars_v2.png")}/>*/}
+                            <Button>Login</Button>
+                        </div>
+                            <div className='download'>
+                                <p>Download CSV portfolio template</p><br/>
+                            <Button>Download</Button>
+                        </div>
                     </div>
                 </section>
             </div>

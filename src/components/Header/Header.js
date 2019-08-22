@@ -9,7 +9,7 @@ export default class Header extends Component {
     static contextType = PortfolioCollectionContext
 
     handleLogoutClick = () => {
-        TokenService.clearAuthToken()
+        // TokenService.clearAuthToken()
         this.context.setLoggedIn(false)
     }
 
@@ -18,8 +18,8 @@ export default class Header extends Component {
             <div className='Header__logged-in-container'>
                 <div className='Header__logged-in'>
                     <Link
-                        to='/gallery'>
-                        Gallery
+                        to='/collection'>
+                        Collection
                     </Link>
                 </div>
                 <div className='Header__logged-in'>
@@ -53,7 +53,7 @@ export default class Header extends Component {
     render() {
         return <>
             <nav className='Header'>
-                <h1>
+                <h1 className='header-h1'>
                     <Link to='/'>
                         RISK<span className='logo-span'>BUDGETING</span>
                     </Link>

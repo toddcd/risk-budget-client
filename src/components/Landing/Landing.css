@@ -1,3 +1,10 @@
+cd /* Color Theme Swatches in Hex */
+.Architecture-1-hex { color: #6B87BF; }
+.Architecture-2-hex { color: #99B5D8; }
+.Architecture-3-hex { color: #3B3F18; }
+.Architecture-4-hex { color: #858C55; }
+.Architecture-5-hex { color: #F2F2F2; }
+
 .landing-container{
     display: flex;
     flex-direction: column;
@@ -11,10 +18,138 @@
 }
 
 .landing-image {
-    margin-top: 10px;
-    max-width: 650px;
+    margin-top: 0px;
+    width: 98%;
+    max-width: 700px;
+    border-radius: 5px;
 }
 
 .landing-content{
-    max-width: 600px;
+    max-width: 700px;
+}
+
+.top-section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+
+.top-section-left {
+    flex: 1;
+    margin: 50px 0 30px 0;
+    padding: 30px 10px 30px 10px;
+    border-top: 2px solid #6b87bf;
+    border-bottom: 2px solid #6b87bf;
+    min-width: 300px;
+    text-align: start;
+}
+
+.question {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.top-section-right {
+    flex: 1;
+    margin: 0px 0 30px 0;
+    padding: 0px 10px 30px 10px;
+    border-bottom: 2px solid #6b87bf;
+    min-width: 300px;
+    text-align: start;
+}
+
+.steps-section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+.steps-list {
+    margin: 0 0 20px 0;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.steps-image{
+    min-width: 300px;
+    flex: 1;
+}
+
+.question {
+    margin: 50px 0 50px 0;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: start;
+    color: #ffffff;
+    margin: 2px 0 2px 0;
+    background-color: #858C55;
+    height: 100%;
+    min-height: 50px;
+    border-radius: 5px;
+}
+
+.step-num {
+    font-size: 20px;
+    padding: 8px 15px 8px 15px;
+    margin: 2px 20px 2px 30px;
+    color: #ffffff;
+    background-color: #6B87BF;
+    border: 1px solid #3B3F18;
+    border-radius: 50%;
+}
+
+.detail-explanation-section{
+    margin: 30px 0 30px 0;
+    padding: 30px 10px 30px 10px;
+    border-top: 2px solid #6b87bf;
+    min-width: 300px;
+    max-width: 700px;
+    text-align: start;
+}
+
+.bottom-section {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    max-width: 700px;
+}
+
+.bottom-section-left {
+    flex: 1;
+    margin: 0;
+    padding: 30px 10px 30px 10px;
+    min-width: 300px;
+    text-align: start;
+}
+
+.bottom-section-right {
+    flex: 1;
+    margin: 0 0 30px 0;
+    padding: 30px 10px 30px 10px;
+    border-top: 2px solid #6b87bf;
+    border-bottom: 2px solid #6b87bf;
+    min-width: 300px;
+    text-align: start;
+}
+
+@media only screen and (min-width: 640px) {
+    .top-section-right {
+        margin: 80px 0 30px 0;
+        padding: 30px 10px 30px 10px;
+    }
+    .steps-list {
+        margin: 0;
+    }
+    .detail-explanation-section{
+        margin: 30px 0 0 0;
+        padding: 30px 10px 0 10px;
+    }
+    .bottom-section-right {
+        margin: 30px 0 30px 0;
+    }
 }

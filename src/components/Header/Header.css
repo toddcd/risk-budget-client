@@ -25,6 +25,7 @@ cd /* Color Theme Swatches in Hex */
 .Header h1 {
   align-self: center;
   margin: 12px;
+  font-size: small;
 }
 
 .Header a {

@@ -1,10 +1,13 @@
 cd /* Color Theme Swatches in Hex */
+  /*medium purple*/
 .Architecture-1-hex { color: #6B87BF; }
+/*light blue*/
 .Architecture-2-hex { color: #99B5D8; }
+/*dark brown*/
 .Architecture-3-hex { color: #3B3F18; }
+/*gold?*/
 .Architecture-4-hex { color: #858C55; }
 .Architecture-5-hex { color: #F2F2F2; }
-
 
 .Hyph {
   margin-right: 5px;
@@ -13,7 +16,7 @@ cd /* Color Theme Swatches in Hex */
 
 .Input,
 .Textarea {
-  border: 1px solid #ddd;
+  border: 1px solid #F2F2F2;
   display: block;
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -33,12 +36,15 @@ cd /* Color Theme Swatches in Hex */
 }
 
 .Button {
-  order: 1px solid #aaa;
-  background-color: #eee;
+  border: 1px solid #F2F2F2;
+  background-color: #858C55;
+  min-width: 120px;
+  color: #ffffff;
   font-size: 1.1em;
   border-radius: 4px;
   padding: 8px 12px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .Required {
@@ -54,4 +60,18 @@ cd /* Color Theme Swatches in Hex */
 .Section--list {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.react-csv-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.csv-input {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #6B87BF;
+  border-radius: 5px;
 }
