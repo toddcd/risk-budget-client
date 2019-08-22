@@ -57,7 +57,7 @@ export default class Landing extends Component {
                         </div>
                             <div className='download'>
                                 <p>Download CSV portfolio template</p><br/>
-                            <Button>Download</Button>
+                                <Button>Download</Button>
                         </div>
                     </div>
                 </section>
