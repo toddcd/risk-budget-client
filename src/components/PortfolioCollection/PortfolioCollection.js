@@ -8,7 +8,7 @@ import './PortfolioCollection.css'
 export default class PortfolioCollection extends Component {
     constructor() {
         super();
-        this.state = {open: false};
+        this.state = {open: false,};
         library.add(faChevronDown, faChevronUp)
     }
 
@@ -20,12 +20,11 @@ export default class PortfolioCollection extends Component {
 
     render() {
         const {portfolio} = this.props
-
         return (
             <div className="portfolio-collapse-container">
                 <button className="collapse-btn" onClick={this.toggle}>
                     <div className='btn-content left'>
-                        <span className='fund-details-span'>{portfolio.port_name}</span>({portfolio.date_create})
+                        <span className='fund-details-span'>{portfolio.name}</span>({portfolio.date_created})
                     </div>
                     <div className='div-font-awesome-chevron right'>
                         {this.state.open ? <FontAwesomeIcon icon="chevron-up" className='font-awesome-chevron'/>
@@ -39,14 +38,14 @@ export default class PortfolioCollection extends Component {
                             port_id: portfolio.port_id
                         }
                     }}>
-                        <button className='delete-edit-button' data-id={1}>Edit</button>
+                        <button className='delete-edit-button' data-id={portfolio.port_id}>Edit</button>
                     </Link>
-                    <button className='delete-edit-button' data-id={1} onClick={this.props.deletePortfolio}>Delete
+                    <button className='delete-edit-button' data-id={portfolio.port_id} onClick={this.props.deletePortfolio}>Delete
                     </button>
                     <div className='holdings-content'>
                         {portfolio.funds.map(fund => {
                             return (
-                                <div className='fund-details'>
+                                <div key={fund.fund_id} className='fund-details'>
                                     <div className='fund-name'>
                                         <span className='fund-details-span'>{fund.name} ({fund.ticker})</span><br/>
                                     </div>
@@ -57,11 +56,11 @@ export default class PortfolioCollection extends Component {
                                         </div>
                                         <div className='fund-detail'>
                                             <span className='fund-details-span-left'>Expected return: </span>
-                                            <span className='fund-details-span-right'>{fund.expected_return}</span>
+                                            <span className='fund-details-span-right'>{fund.return}</span>
                                         </div>
                                         <div className='fund-detail'>
                                             <span className='fund-details-span-left'>Expected risk: </span>
-                                            <span className='fund-details-span-right'>{fund.expected_risk}</span>
+                                            <span className='fund-details-span-right'>{fund.risk}</span>
                                         </div>
                                         <br/>
                                     </div>
