@@ -1,79 +1,138 @@
 import React, {Component} from 'react'
 
-export const nullBike = {
-    bike: {}
+export const nullPortfolio = {
+    portfolio: {}
+}
+
+export const nullFunds = {
+    funds: {}
 }
 
 const PortfolioContext = React.createContext({
-    bike: nullBike,
+    showAnalysis: false,
+    showFileLoader: true,
+    portfolio: nullPortfolio,
+    funds: {},
     error: null,
     setError: () => {
     },
     clearError: () => {
     },
-    setBike: () => {
+    setPortfolio: () => {
     },
-    clearBike: () => {
+    toggleAnalysis: () => {
     },
-    removeNote: () => {
+    toggleFileLoader: () => {
     },
-    removePosition: () => {
+    clearPortfolio: () => {
+    },
+    setEditFundDetail: () => {
+    },
+    setAddFundDetail: () => {
+    },
+    clearFunds: () => {
     },
 })
 
 export default PortfolioContext
 
-export class BikeProvider extends Component {
+export class PortfolioProvider extends Component {
     state = {
-        bike: nullBike,
+        showAnalysis: false,
+        showFileLoader: true,
+        portfolio: nullPortfolio,
+        funds: nullFunds,
         error: null,
     };
 
-    setBike = bike => {
-        this.setState({bike})
+    toggleAnalysis = (e) => {
+        this.setState({showAnalysis : e})
     }
 
-    clearBike = () => {
-        this.setBike(nullBike)
+    toggleFileLoader = (e) => {
+        this.setState({showFileLoader : e})
     }
 
-    removeNote = noteId => {
-        let source_bike = this.state.bike
-        const notes = source_bike.notes.filter(note => {
-            return note.note_id !== parseInt(noteId)
-        })
-        const bike = {
-                geometry: source_bike.geometry,
-                make: source_bike.make,
-                mrf_bike_id: source_bike.mrf_bike_id,
-                model: source_bike.model,
-                notes: notes,
-                positions: source_bike.positions,
-                user_bike_id: source_bike.user_bike_id,
-                year: source_bike.year
+    setPortfolio = portfolio => {
+        this.setState({portfolio})
+    }
+
+    clearPortfolio = () => {
+        this.setPortfolio(nullPortfolio)
+    }
+
+    setAddFundDetail = update => {
+        const prevState = this.state.portfolio.funds
+
+        for (let i in prevState) {
+            let fund = prevState[i]
+            if (i === update.fund_id) {
+                if (update.hasOwnProperty('weight')) {
+                    prevState[i].weight = update.weight
+                }
+
+                if (update.hasOwnProperty('return')) {
+                    prevState[i].return = update.return
+                }
+
+                if (update.hasOwnProperty('risk')) {
+                    prevState[i].risk = update.risk
+                }
+                this.setState({
+                    portfolio:
+                        {
+                            name: this.state.portfolio.name,
+                            id: null,
+                            date_created: this.state.portfolio.date_created,
+                            funds: prevState
+                        }
+                })
+            }
         }
-        this.setState({bike})
+
     }
 
-    removePosition = positionId => {
-        let source_bike = this.state.bike
-        const positions = source_bike.positions.filter(pos => {
-            console.log(pos.position_id)
-            console.log(positionId)
+    setEditFundDetail = update => {
+        const prevState = this.state.funds
 
-            return pos.position_id !== parseInt(positionId)
-        })
-        const bike = {
-            geometry: source_bike.geometry,
-            make: source_bike.make,
-            mrf_bike_id: source_bike.mrf_bike_id,
-            model: source_bike.model,
-            notes: source_bike.notes,
-            positions: positions,
-            user_bike_id: source_bike.user_bike_id,
-            year: source_bike.year
+        if (prevState.length === undefined) {
+            this.setState({funds: [update]})
+        } else {
+            const exists = prevState.some(fund => {
+                return fund.fund_id === update.fund_id
+            })
+
+            if (!exists) {
+                prevState.push(update)
+                this.setState({funds: prevState})
+            } else {
+                for (let i in prevState) {
+                    let fund = prevState[i]
+                    if (fund.fund_id === update.fund_id) {
+                        if (update.hasOwnProperty('weight')) {
+                            prevState[i].weight = update.weight
+                        }
+
+                        if (update.hasOwnProperty('return')) {
+                            prevState[i].return = update.return
+                        }
+
+                        if (update.hasOwnProperty('risk')) {
+                            prevState[i].risk = update.risk
+                        }
+                        this.setState({funds: prevState})
+                    }
+                }
+            }
         }
-        this.setState({bike})
+    }
+
+    clearFunds = () => {
+        this.setState({funds: nullFunds})
+    }
+
+    clearError = () => {
+        this.setError(null)
     }
 
     setError = error => {
@@ -87,14 +146,23 @@ export class BikeProvider extends Component {
 
     render() {
         const value = {
-            bike: this.state.bike,
+            showAnalysis: this.state.showAnalysis,
+            toggleAnalysis: this.toggleAnalysis,
+            showFileLoader: this.state.showFileLoader,
+            toggleFileLoader: this.toggleFileLoader,
+
+            portfolio: this.state.portfolio,
+            setPortfolio: this.setPortfolio,
+            setAddFundDetail: this.setAddFundDetail,
+            clearPortfolio: this.clearPortfolio,
+
+            funds: this.state.funds,
+            setEditFundDetail: this.setEditFundDetail,
+            clearFunds: this.clearFunds,
+
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
-            setBike: this.setBike,
-            clearBike: this.clearBike,
-            removeNote: this.removeNote,
-            removePosition: this.removePosition,
         }
         return (
             <PortfolioContext.Provider value={value}>

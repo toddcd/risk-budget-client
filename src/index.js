@@ -9,7 +9,9 @@ import App from './components/App/App';
 ReactDOM.render(
     <BrowserRouter>
         <PortfolioCollectionProvider>
-        <App/>
+            <PortfolioProvider>
+                <App/>
+            </PortfolioProvider>
         </PortfolioCollectionProvider>
     </BrowserRouter>
     , document.getElementById('root'));

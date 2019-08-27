@@ -84,7 +84,7 @@ cd /* Color Theme Swatches in Hex */
 .step {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     text-align: start;
     color: #ffffff;
     margin: 2px 0 2px 0;
