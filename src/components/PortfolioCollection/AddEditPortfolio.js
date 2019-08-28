@@ -3,6 +3,7 @@ import {Button, FileReader, Input, Section} from "../Utils/ElementUtils";
 import './AddEditPortfolio.css'
 import PortfolioContext from "../../context/PortfolioContext";
 import PortfolioApiService from "../../services/portfolio-api-service";
+import {Link} from "react-router-dom";
 
 export default class AddEditPortfolio extends Component {
     static contextType = PortfolioContext
@@ -126,7 +127,15 @@ export default class AddEditPortfolio extends Component {
                                 </div>
                                 :
                                 <div className='analysis-div'>
-                                    <Button className='event-button' onClick={this.handleCancel}>Run Analysis</Button>
+                                    <Link to={{
+                                        pathname: `/analysis`,
+                                        state: {
+                                            port_id: 1
+                                        }
+                                    }}>
+                                        <Button className='event-button' onClick={this.handleCancel}>Run
+                                            Analysis</Button>
+                                    </Link>
                                 </div>
                             }
 

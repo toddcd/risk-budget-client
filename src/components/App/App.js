@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
+import Analysis from '../Analysis/Analysis'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import PortfolioCollectionPage from "../../routes/PortfolioCollectionPage/PortfolioCollectionPage";
 import './App.css';
@@ -55,6 +56,13 @@ class App extends Component {
                                 path={'/collection/:port_id'}
                                 render={(renderProps) =>
                                     (<AddEditPortfolio {...renderProps} />
+                                    )}
+                            />
+                            <Route
+                                exact
+                                path={'/analysis/'}
+                                render={(renderProps) =>
+                                    (<Analysis {...renderProps} />
                                     )}
                             />
                             <Route
