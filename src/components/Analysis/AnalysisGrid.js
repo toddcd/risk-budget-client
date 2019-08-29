@@ -1,65 +1,86 @@
-import React from 'react';
-import {AgGridReact} from 'ag-grid-react';
-import './AnalysisGrid.css';
+import React, {Component} from 'react';
+import {AgGridReact} from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import './Analysis.css'
+import {text} from "@fortawesome/fontawesome-svg-core";
 
-const AnalysisGrid = (props) => {
+export default class AnalysisGrid extends Component {
 
-    const columnDefs = [
-            {
-                headerName: "",
-                children:
-                    [
-                        {headerName: "Name", field: "name", width: 120, filter: true},
-                        {headerName: "Ticker", field: "ticker", width: 75, filter: true},
-                        {headerName: "Weight", field: "budget_data.weight", width: 100},
-                        {headerName: "Stand Dev", field: "budget_data.sa_std_dev", width: 100},
-                        {headerName: "Return", field: "budget_data.return", width: 100},
-                    ]
-            },
-            {
-                headerName: "Risk Contribution",
-                children:
-                    [
-                        {headerName: "Marginal", field: "budget_data.mctr", width: 100},
-                        {headerName: "Absolute", field: "budget_data.abs_cont_risk", width: 100},
-                        {headerName: "Relative", field: "budget_data.rel_cont_risk", width: 100},
-                    ]
-            },
-            {
-                headerName: "Return Contribution",
-                children:
-                    [
-                        {headerName: "Absolute", field: "budget_data.abs_cont_return", width: 100},
-                        {headerName: "Relative", field: "budget_data.rel_cont_return", width: 100},
-                    ]
-            },
-            {headerName: "Rel-Return - Rel-Risk", field: "budget_data.relrisk_relreturn", width: 100},
-        ]
+    constructor(props) {
+        super(props);
+        this.state = {
+            columnDefs: [
+                {
+                    headerName: "",
+                    children:
+                        [
+                            {headerName: "Name", field: "name", minWidth: 135, cellStyle: {textAlign : 'start'}},
+                            {headerName: "Weight", field: "budget_data.weight", minWidth: 60},
+                        ]
+                },
+                {
+                    headerName: "Relative Contribution",
+                    children:
+                        [
+                            {headerName: "Risk", field: "budget_data.rel_cont_risk", minWidth: 60},
+                            {headerName: "Return", field: "budget_data.rel_cont_return", minWidth: 60},
+                        ]
+                },
+                {headerName: "Ticker", field: "ticker", minWidth: 100},
+                {headerName: "Stand Dev", field: "budget_data.sa_std_dev", minWidth: 100},
+                {headerName: "Return", field: "budget_data.return", minWidth: 100},
+                {headerName: "Marginal Risk", field: "budget_data.mctr", minWidth: 100},
+                {headerName: "Absolute Risk", field: "budget_data.abs_cont_risk", minWidth: 100},
+                {headerName: "Absolute Return", field: "budget_data.abs_cont_return", minWidth: 100},
+                {headerName: "Rel-Return - Rel-Risk", field: "budget_data.relrisk_relreturn", minWidth: 100},
+            ]
+        }
+    }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    };
+
+    onGridSizeChanged = (params) => {
+        let gridWidth = document.getElementById("grid-wrapper").offsetWidth;
+        let columnsToShow = [];
+        let columnsToHide = [];
+        let totalColsWidth = 0;
+        let allColumns = params.columnApi.getAllColumns();
+        for (let i = 0; i < allColumns.length; i++) {
+            let column = allColumns[i];
+            totalColsWidth += column.getMinWidth();
+            if (totalColsWidth > gridWidth) {
+                columnsToHide.push(column.colId);
+            } else {
+                columnsToShow.push(column.colId);
+            }
+        }
+        params.columnApi.setColumnsVisible(columnsToShow, true);
+        params.columnApi.setColumnsVisible(columnsToHide, false);
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
         return (
-            <div
-                className="ag-theme-balham grid-view">
+            <div id="myGrid" className="myGrid ag-theme-balham">
                 <AgGridReact
-                    // listening for events
-                    //onGridReady={onGridReady}
-
-                    // binding to array properties
-                    rowData={props.rowData.holdings}
-                    columnDefs={columnDefs}
-
-                    // setting default column properties
+                    columnDefs={this.state.columnDefs}
+                    rowData={this.props.rowData.holdings}
+                    onGridReady={this.onGridReady}
+                    onGridSizeChanged={this.onGridSizeChanged}
                     defaultColDef={{
                         sortable: true,
                         filter: true,
                         headerComponentParams: {
                             menuIcon: 'fa-bars'
                         }
-                    }}>
-                </AgGridReact>
+                    }}
+                />
             </div>
         );
+    }
 }
 
-export default AnalysisGrid;

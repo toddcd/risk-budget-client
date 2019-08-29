@@ -40,6 +40,7 @@ const BudgetChart = (props) => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: true,
             position: 'top',
@@ -57,7 +58,6 @@ const BudgetChart = (props) => {
     return (
         <Bar data={data}
              options={options}
-             height={250}
         />
     )
 };
