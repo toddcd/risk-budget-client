@@ -137,6 +137,11 @@ cd /* Color Theme Swatches in Hex */
     text-align: start;
 }
 
+.download-button:link, .download-button:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 @media only screen and (min-width: 640px) {
     .top-section-right {
         margin: 80px 0 30px 0;

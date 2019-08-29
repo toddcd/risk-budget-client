@@ -27,8 +27,8 @@ class Analysis extends Component {
     }
 
     render() {
-        const data = PORTDATA.output()[0];
-        //const data = this.state.riskdata;
+        //const data = PORTDATA.output()[0];
+        const data = this.state.riskdata;
         return (
             <Fragment>
                 {data.holdings ?

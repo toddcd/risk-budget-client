@@ -4,6 +4,7 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './PortfolioCollection.css'
+import {Button} from "../Utils/ElementUtils";
 
 export default class PortfolioCollection extends Component {
     constructor() {
@@ -24,7 +25,7 @@ export default class PortfolioCollection extends Component {
             <div className="portfolio-collapse-container">
                 <button className="collapse-btn" onClick={this.toggle}>
                     <div className='btn-content left'>
-                        <span className='fund-details-span'>{portfolio.name}</span>({portfolio.date_created})
+                        <span className='fund-details-span'>{portfolio.name}</span>
                     </div>
                     <div className='div-font-awesome-chevron right'>
                         {this.state.open ? <FontAwesomeIcon icon="chevron-up" className='font-awesome-chevron'/>
@@ -32,6 +33,14 @@ export default class PortfolioCollection extends Component {
                     </div>
                 </button>
                 <div id="portfolio-holdings" className={"portfolio-holdings collapse" + (this.state.open ? ' in' : '')}>
+                    <Link to={{
+                        pathname: `/analysis`,
+                        state: {
+                            port_id: portfolio.port_id
+                        }
+                    }}>
+                        <button className='delete-edit-button' data-id={portfolio.port_id}>Analysis</button>
+                    </Link>
                     <Link to={{
                         pathname: `/collection/${portfolio.port_id}`,
                         state: {

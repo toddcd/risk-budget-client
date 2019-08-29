@@ -9,7 +9,7 @@ export default class Header extends Component {
     static contextType = PortfolioCollectionContext
 
     handleLogoutClick = () => {
-        // TokenService.clearAuthToken()
+        TokenService.clearAuthToken()
         this.context.setLoggedIn(false)
     }
 

@@ -3,7 +3,6 @@ import {AgGridReact} from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import './Analysis.css'
-import {text} from "@fortawesome/fontawesome-svg-core";
 
 export default class AnalysisGrid extends Component {
 
@@ -37,11 +36,6 @@ export default class AnalysisGrid extends Component {
             ]
         }
     }
-
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-    };
 
     onGridSizeChanged = (params) => {
         let gridWidth = document.getElementById("grid-wrapper").offsetWidth;
