@@ -65,7 +65,7 @@ export class PortfolioProvider extends Component {
         const prevState = this.state.portfolio.funds
 
         for (let i in prevState) {
-            let fund = prevState[i]
+            //let fund = prevState[i]
             if (i === update.fund_id) {
                 if (update.hasOwnProperty('weight')) {
                     prevState[i].weight = update.weight

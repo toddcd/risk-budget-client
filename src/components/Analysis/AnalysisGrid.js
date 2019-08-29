@@ -38,7 +38,8 @@ export default class AnalysisGrid extends Component {
     }
 
     onGridSizeChanged = (params) => {
-        let gridWidth = document.getElementById("grid-wrapper").offsetWidth;
+        //let gridWidth = document.getElementById("grid-wrapper").offsetWidth;
+        let gridWidth = document.getElementById("myGrid").offsetWidth;
         let columnsToShow = [];
         let columnsToHide = [];
         let totalColsWidth = 0;
@@ -59,7 +60,7 @@ export default class AnalysisGrid extends Component {
 
     render() {
         return (
-            <div id="myGrid" className="myGrid ag-theme-balham">
+            <div id="myGrid" className="grid-wrapper myGrid ag-theme-balham">
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
                     rowData={this.props.rowData.holdings}

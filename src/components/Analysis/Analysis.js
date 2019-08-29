@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import PORTDATA from '../../PORTFOLIO';
-import {Section} from "../Utils/ElementUtils";
+// import PORTDATA from '../../PORTFOLIO';
+// import {Section} from "../Utils/ElementUtils";
 import BudgetChart from "./AnalysisChart";
 import AnalysisGrid from "./AnalysisGrid";
 import PortfolioApiService from '../../services/portfolio-api-service'
@@ -32,14 +32,10 @@ class Analysis extends Component {
         return (
             <Fragment>
                 {data.holdings ?
-                   <div className='analysis-container'>
-                       <div id='chart-wrapper' className='chart-wrapper'>
-                            <BudgetChart results={data}/>
-                       </div>
-                        <div id="grid-wrapper" className='grid-wrapper'>
-                            <AnalysisGrid rowData={data} columnDefs={this.state.columnDefs}/>
-                       </div>
-                   </div>
+                    <div className='analysis-container'>
+                        <BudgetChart results={data}/>
+                        <AnalysisGrid rowData={data} columnDefs={this.state.columnDefs}/>
+                    </div>
                     :
                     <div></div>}
             </Fragment>

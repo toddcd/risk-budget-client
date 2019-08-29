@@ -56,9 +56,11 @@ const BudgetChart = (props) => {
     };
 
     return (
-        <Bar data={data}
-             options={options}
-        />
+        <div id='chart-wrapper' className='chart-wrapper'>
+            <Bar data={data}
+                 options={options}
+            />
+        </div>
     )
 };
 

@@ -4,7 +4,6 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './PortfolioCollection.css'
-import {Button} from "../Utils/ElementUtils";
 
 export default class PortfolioCollection extends Component {
     constructor() {
