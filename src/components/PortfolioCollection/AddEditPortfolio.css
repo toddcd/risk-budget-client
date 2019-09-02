@@ -1,4 +1,4 @@
-.add-edit-portfolio-container{
+.add-edit-portfolio-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,21 +10,96 @@
 }
 
 .cvs-fileupload-container {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 20px;
+    max-width: 350px;
+    margin: 0 5px 0 5px;
 }
 
-.add-edit-fund-container{
+.save-cancel-div {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 245px;
+    margin-bottom: 15px;
+}
+.btn-analysis{
+    height: 50px;
+    padding: 0 20px 0 0;
+}
+
+.font-awesome-external-link-edit{
+    color: #6B87BF;
+    margin: 0 10px 0 10px;
+}
+
+.add-port-step-upload {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.1em;
+    text-align: start;
+    margin: 2px 0 2px 0;
+    padding: 1px 15px 0 15px;
+    background-color: #858C55;
+    height: 100%;
+    min-height: 40px;
+    border-radius: 5px;
+}
+
+.add-port-step {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.1em;
+    text-align: start;
+    margin: 2px 0 2px 0;
+    padding: 1px 15px 0 15px;
+    background-color: #858C55;
+    height: 100%;
+    width: 100%;
+    min-height: 40px;
+    border-radius: 5px;
+}
+
+.add-port-num {
+    font-size: 20px;
+    padding: 4px 11px 4px 11px;
+    margin: 0 15px 0 15px;
+    color: #ffffff;
+    background-color: #6B87BF;
+    border: 1px solid #3B3F18;
+    border-radius: 50%;
+}
+
+.save-cancel-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.event-button {
+    align-self: center;
+}
+
+.add-edit-fund-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 0 0;
     width: 100%;
     border-top: 1px solid #858C55;
 }
 
-.form-section{
+.fund-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.form-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,23 +115,36 @@
     flex: 1;
     min-width: 150px;
 }
-.fund-input-group{
+
+.fund-input-group {
     flex: 1;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 5px 0 0 0;
+    font-weight: bold;
+    color: #858C55;
+    padding: 10px 0 10px 0;
 }
 
 .label-input {
     display: flex;
 }
 
-.label-input > label{
+.label-input > label {
     align-self: center;
-    width: 100px;
+    min-width: 75px;
+    width: 40%;
 }
 
-.label-input > input{
-    width: 150px;
+.label-input > input {
+    min-width: 150px;
+    width: 60%;
+    text-align: center;
+}
+
+@media only screen and (min-width: 450px) {
+    .add-edit-fund-container {
+        flex-direction: row;
+        padding: 0;
+    }
 }

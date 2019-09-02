@@ -85,9 +85,9 @@ export function FileReader({className, ...props}) {
         <CSVReader
             cssClass="react-csv-input"
             cssInputClass="csv-input"
-            label="Select Portfolio CSV File"
+            label="Choose Assets"
             onFileLoaded={uploaded}
-            inputStyle={{padding: '10px'}}
+            inputStyle={{padding: '5px'}}
         />
     );
 }

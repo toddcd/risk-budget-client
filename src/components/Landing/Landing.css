@@ -1,9 +1,9 @@
-cd /* Color Theme Swatches in Hex */
-.Architecture-1-hex { color: #6B87BF; }
-.Architecture-2-hex { color: #99B5D8; }
-.Architecture-3-hex { color: #3B3F18; }
-.Architecture-4-hex { color: #858C55; }
-.Architecture-5-hex { color: #F2F2F2; }
+/* Color Theme Swatches in Hex */
+/*.Architecture-1-hex {color: #6B87BF;} violet*/
+/*.Architecture-2-hex {color: #99B5D8;} light blue*/
+/*.Architecture-3-hex {color: #3B3F18;} dark brown*/
+/*.Architecture-4-hex {color: #858C55;} gold*/
+/*.Architecture-5-hex {color: #F2F2F2;} off white*/
 
 .landing-container{
     display: flex;
@@ -87,6 +87,8 @@ cd /* Color Theme Swatches in Hex */
     justify-content: flex-start;
     text-align: start;
     color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
     margin: 2px 0 2px 0;
     background-color: #858C55;
     height: 100%;
@@ -127,6 +129,10 @@ cd /* Color Theme Swatches in Hex */
     text-align: start;
 }
 
+.bt-landing-width {
+    width: 300px;
+}
+
 .bottom-section-right {
     flex: 1;
     margin: 0 0 30px 0;
@@ -137,7 +143,8 @@ cd /* Color Theme Swatches in Hex */
     text-align: start;
 }
 
-.download-button:link, .download-button:visited {
+.download-button:link,
+.download-button:visited {
     text-decoration: none;
     color: #ffffff;
 }

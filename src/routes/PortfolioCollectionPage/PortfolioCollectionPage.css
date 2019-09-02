@@ -14,3 +14,10 @@
    align-self: center;
    margin-bottom: 20px ;
 }
+
+.font-awesome-arrow-down{
+   flex: 1;
+   margin-left: 5px;
+   align-self: center;
+   color: #ffffff;
+}

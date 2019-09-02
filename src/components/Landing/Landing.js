@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {faArrowAltCircleDown} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import './Landing.css'
 import {Button} from "../Utils/ElementUtils";
 
@@ -7,6 +10,11 @@ export default class Landing extends Component {
     static defaultProps = {
         onLoginSuccess: () => {
         }
+    }
+
+    constructor() {
+        super();
+        library.add(faArrowAltCircleDown)
     }
 
     render() {
@@ -26,10 +34,10 @@ export default class Landing extends Component {
                             <span className='step-num'>1</span> Choose Assets
                         </div>
                         <div className='step'>
-                            <span className='step-num'>2</span> Assign Risk
+                            <span className='step-num'>2</span> Assign Weights
                         </div>
                         <div className='step'>
-                            <span className='step-num'>3</span> Run Optimization
+                            <span className='step-num'>3</span> Run Analysis
                         </div>
                     </div>
                     <div className='steps-image'>
@@ -53,19 +61,19 @@ export default class Landing extends Component {
                         <div>
                             <p>Register to login</p>
                             <Link to='/Register'>
-                                <Button>Register</Button>
+                                <Button className='bt-landing-width'>Register</Button>
                             </Link>
                             <p>Take a look with demo account!<br/>
                                 (us: demo, pw: Password1!)</p>
                             <Link
                                 to='/login'>
-                                <Button>Login</Button>
+                                <Button className='bt-landing-width'>Login</Button>
                             </Link>
                         </div>
                         <div className='download'>
                             <p>Download CSV portfolio template</p>
-                            <Button><a className='download-button' href={require("../../assets/portfolio_template.csv")}
-                                       download>Download</a></Button>
+                            <Button className='bt-landing-width'><a className='download-button' href={require("../../assets/portfolio_template.csv")}
+                                       download>Template</a><FontAwesomeIcon icon="arrow-alt-circle-down" className='font-awesome-arrow-down'/></Button>
                         </div>
                     </div>
                 </section>

@@ -1,18 +1,24 @@
+/* Color Theme Swatches in Hex */
+/*.Architecture-1-hex {color: #6B87BF;} violet*/
+/*.Architecture-2-hex {color: #99B5D8;} light blue*/
+/*.Architecture-3-hex {color: #3B3F18;} dark brown*/
+/*.Architecture-4-hex {color: #858C55;} gold*/
+/*.Architecture-5-hex {color: #F2F2F2;} off white*/
 * {
-  box-sizing: border-box;
-
+    box-sizing: border-box;
 }
 
 *:before,
- *:after {
-   box-sizing: border-box;
- }
+*:after {
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-  height: 100%;
-  position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #3B3F18;
+    text-align: center;
+    height: 100%;
+    position: relative;
 }
