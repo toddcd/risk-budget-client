@@ -9,7 +9,7 @@ The Risk Budgeting Tool helps provide insight by taking in fund performance alon
 ![Alt text](./readme-images/rb-landing.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 ![Alt text](./readme-images/rb-collection-1.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp; 
 
-![Alt text](./readme-images/rb-collectiion.png "Screen Shots")
+![Alt text](./readme-images/rb-collection.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 ![Alt text](./readme-images/rb-edit-port.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![Alt text](./readme-images/rb-analysis.png "Screen Shots")
