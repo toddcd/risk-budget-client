@@ -9,8 +9,12 @@ The Risk Budgeting Tool helps provide insight by taking in fund performance alon
 ![Alt text](./readme-images/rb-landing.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 ![Alt text](./readme-images/rb-collection-1.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp; 
 
+After using the portfolio template to construct a portfolio, and providing the important performance data for the underlying funds, the portfolio can be imported into the application and persisted to the database. 
+
 ![Alt text](./readme-images/rb-collection.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 ![Alt text](./readme-images/rb-edit-port.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
+
+ After the portfolio has been imported, weight, return, and risk variables can be adjusted for each fund and the entire analyzed by the calculation engine.
 
 ![Alt text](./readme-images/rb-analysis.png "Screen Shots")
 
