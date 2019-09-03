@@ -45,8 +45,6 @@ export default class AddEditPortfolio extends Component {
 
     handleSubmitAddPortfolio = (event) => {
         event.preventDefault()
-        console.log('ADD PORTFOLIO')
-
         const newPortfolio = {
             data: {
                 name: this.context.portfolio.name,
