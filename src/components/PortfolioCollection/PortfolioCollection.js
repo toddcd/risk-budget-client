@@ -33,7 +33,7 @@ export default class PortfolioCollection extends Component {
                 </button>
                 <div id="portfolio-holdings" className={"portfolio-holdings collapse" + (this.state.open ? ' in' : '')}>
                     <Link to={{
-                        pathname: `/analysis`,
+                        pathname: `/analysis/${portfolio.port_id}`,
                         state: {
                             port_id: portfolio.port_id
                         }
@@ -58,7 +58,7 @@ export default class PortfolioCollection extends Component {
                                 <div key={fund.fund_id} className='fund-details'>
                                     <div className='fund-name'>
                                         <span className='fund-details-span'><a className='fund-details-link' href={link}
-                                                                               target='_blank'>
+                                                                               target='_blank' rel="noopener noreferrer">
                                             <FontAwesomeIcon icon="external-link-alt"
                                                              className='font-awesome-external-link'/>
                                             {fund.name} ({fund.ticker})</a></span>

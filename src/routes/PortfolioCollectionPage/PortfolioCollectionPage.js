@@ -19,6 +19,7 @@ export default class BicycleGalleryPage extends Component {
 
     // //TODO -- If multiple calls needed, look at using promise.all block if needed
     componentDidMount() {
+
         this.context.clearError()
         PortfolioApiService.getPortfolioCollection()
             .then(this.context.setPortfolioCollection)

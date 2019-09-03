@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-// import PORTDATA from '../../PORTFOLIO';
-// import {Section} from "../Utils/ElementUtils";
 import BudgetChart from "./AnalysisChart";
 import AnalysisGrid from "./AnalysisGrid";
 import PortfolioApiService from '../../services/portfolio-api-service'
@@ -12,29 +10,32 @@ class Analysis extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            riskdata: {}
+            data: {holdings: []}
         }
     }
 
     componentDidMount() {
-        PortfolioApiService.getRiskBudgetAnalysis()
+        const portId = this.props.location.state.port_id
+        PortfolioApiService.getPortfolio(portId)
             .then(data => {
-                this.setState({riskdata: data[0]})
-            })
-            .catch(err => {
-
+                const portfolio = {data: data}
+                PortfolioApiService.getRiskBudgetAnalysis(portfolio)
+                    .then(data => {
+                        this.setState({data: {holdings: data.holdings}})
+                    })
+                    .catch(err => {
+                        console.log(err.message)
+                    })
             })
     }
 
     render() {
-        //const data = PORTDATA.output()[0];
-        const data = this.state.riskdata;
         return (
             <Fragment>
-                {data.holdings ?
+                {this.state.data.holdings.length > 0 ?
                     <div className='analysis-container'>
-                        <BudgetChart results={data}/>
-                        <AnalysisGrid rowData={data} columnDefs={this.state.columnDefs}/>
+                        <BudgetChart results={this.state.data}/>
+                        <AnalysisGrid rowData={this.state.data} columnDefs={this.state.columnDefs}/>
                     </div>
                     :
                     <div></div>}

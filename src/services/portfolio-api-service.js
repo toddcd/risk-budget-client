@@ -3,14 +3,15 @@ import TokenService from "../services/token-service"
 
 const PortfolioApiService = {
     getRiskBudgetAnalysis(portfolio) {
-        return fetch( `${config.CALC_ENGINE_ENDPOINT}/budget`, {
+        return fetch( `${config.CALC_ENGINE_ENDPOINT}/rbcalc`, {
+            method: "POST",
             headers: {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
-                "content-type": "application/json",
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(portfolio),
         }).then(res =>
-            (!res.ok)
+                (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
         )

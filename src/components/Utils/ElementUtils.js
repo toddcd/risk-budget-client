@@ -106,7 +106,8 @@ function addFundMetaData(key, portfolio, col_id, col) {
     } else {
         key_name = key
     }
-    portfolio.funds[col_id - 1][key_name] = (key_name === 'name' ? col : (col * 100).toFixed(3))
+    //portfolio.funds[col_id - 1][key_name] = (key_name === 'name' ? col : (col * 100).toFixed(3))
+    portfolio.funds[col_id - 1][key_name] = (key_name === 'name' ? col : col)
 }
 
 function addFundPerfData(key, portfolio, col_id, col) {

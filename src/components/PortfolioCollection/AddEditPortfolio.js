@@ -4,13 +4,14 @@ import './AddEditPortfolio.css'
 import PortfolioContext from "../../context/PortfolioContext";
 import PortfolioApiService from "../../services/portfolio-api-service";
 import {Link} from "react-router-dom";
-import {faChevronDown, faChevronUp, faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
+import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 
 
 export default class AddEditPortfolio extends Component {
     static contextType = PortfolioContext
+
     constructor() {
         super();
         library.add(faExternalLinkAlt)
@@ -35,6 +36,13 @@ export default class AddEditPortfolio extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.context.clearFunds()
+        this.context.clearPortfolio()
+        this.context.toggleAnalysis(false);
+        this.context.toggleFileLoader(false);
+    }
+
     handleSubmitAddPortfolio = (event) => {
         event.preventDefault()
         console.log('ADD PORTFOLIO')
@@ -46,6 +54,11 @@ export default class AddEditPortfolio extends Component {
             }
         }
         PortfolioApiService.postPortfolio(newPortfolio)
+            .then(res => {
+                const port = this.context.portfolio
+                port.port_id = res.port_id
+                this.context.setPortfolio(port)
+            })
         this.context.toggleAnalysis(true);
     }
 
@@ -57,15 +70,14 @@ export default class AddEditPortfolio extends Component {
             port_id: port_id,
             funds: this.context.funds
         }
-
-        PortfolioApiService.patchPortfolio(fundUpdate).then(r => {
-            PortfolioApiService.getPortfolio(port_id)
-                .then(this.context.setPortfolio)
-                .then()
-                .catch(this.context.setError)
-        })
-        this.context.clearFunds()
-        this.context.toggleAnalysis(true);
+        PortfolioApiService.patchPortfolio(fundUpdate)
+            .then(r => {
+                PortfolioApiService.getPortfolio(port_id)
+                    .then(this.context.setPortfolio)
+                    .then()
+                    .catch(this.context.setError)
+                this.context.toggleAnalysis(true);
+            })
     }
 
     handleEditInputChange = (event) => {
@@ -94,7 +106,6 @@ export default class AddEditPortfolio extends Component {
             }
             this.context.setAddFundDetail(fund)
         }
-
     }
 
     handleFileUploaded = (data) => {
@@ -135,20 +146,19 @@ export default class AddEditPortfolio extends Component {
                                         <span className='add-port-num'>2</span> Assign Weights
                                     </div>
                                     <div className='save-cancel-buttons'>
-                                    <Button className='event-button' type='submit'>Save</Button>
-                                    <Button className='event-button' onClick={this.handleCancel}
-                                            type='reset'>Cancel</Button>
+                                        <Button className='event-button' type='submit'>Save</Button>
+                                        <Button className='event-button' onClick={this.handleCancel}
+                                                type='reset'>Cancel</Button>
                                     </div>
                                 </div>
                                 :
                                 <div className='analysis-div'>
                                     <Link to={{
-                                        pathname: `/analysis`,
-                                        state: {
-                                            port_id: 1
-                                        }
+                                        pathname: `/analysis/${this.context.portfolio.port_id}`,
+                                        state: { port_id: this.context.portfolio.port_id },
                                     }}>
-                                        <Button className='event-button btn-analysis' onClick={this.handleCancel}><span className='add-port-num'>3</span>Run
+                                        <Button className='event-button btn-analysis' onClick={this.handleCancel}><span
+                                            className='add-port-num'>3</span>Run
                                             Analysis</Button>
                                     </Link>
                                 </div>
@@ -168,9 +178,12 @@ export default class AddEditPortfolio extends Component {
                                         return (
                                             <li className='add-edit-fund-container' key={fund.ticker}>
                                                 <div className='fund-name'>
-                                                  <span className='fund-details-span'><a className='fund-details-link' href={link} target='_blank'>
-                                                        <FontAwesomeIcon icon="external-link-alt" className='font-awesome-external-link'/>
-                                                         {fund.name} ({fund.ticker})</a></span>
+                                                  <span className='fund-details-span'><a className='fund-details-link'
+                                                                                         href={link} target='_blank'
+                                                                                         rel="noopener noreferrer">
+                                                        <FontAwesomeIcon icon="external-link-alt"
+                                                                         className='font-awesome-external-link'/>
+                                                      {fund.name} ({fund.ticker})</a></span>
                                                 </div>
                                                 <div className='fund-input-group'>
                                                     <div className='label-input'>
