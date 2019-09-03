@@ -4,8 +4,6 @@ import AnalysisGrid from "./AnalysisGrid";
 import PortfolioApiService from '../../services/portfolio-api-service'
 import './Analysis.css'
 
-// import BudgetChartComp from "./AnalysisChartComp";
-
 class Analysis extends Component {
     constructor(props) {
         super(props);
