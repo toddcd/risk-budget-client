@@ -3,9 +3,19 @@ import {Button, FileReader, Input, Section} from "../Utils/ElementUtils";
 import './AddEditPortfolio.css'
 import PortfolioContext from "../../context/PortfolioContext";
 import PortfolioApiService from "../../services/portfolio-api-service";
+import {Link} from "react-router-dom";
+import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {library} from "@fortawesome/fontawesome-svg-core";
+
 
 export default class AddEditPortfolio extends Component {
     static contextType = PortfolioContext
+
+    constructor() {
+        super();
+        library.add(faExternalLinkAlt)
+    }
 
     componentDidMount() {
         // if edit existing port then get
@@ -26,6 +36,13 @@ export default class AddEditPortfolio extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.context.clearFunds()
+        this.context.clearPortfolio()
+        this.context.toggleAnalysis(false);
+        this.context.toggleFileLoader(false);
+    }
+
     handleSubmitAddPortfolio = (event) => {
         event.preventDefault()
         console.log('ADD PORTFOLIO')
@@ -37,6 +54,11 @@ export default class AddEditPortfolio extends Component {
             }
         }
         PortfolioApiService.postPortfolio(newPortfolio)
+            .then(res => {
+                const port = this.context.portfolio
+                port.port_id = res.port_id
+                this.context.setPortfolio(port)
+            })
         this.context.toggleAnalysis(true);
     }
 
@@ -48,15 +70,14 @@ export default class AddEditPortfolio extends Component {
             port_id: port_id,
             funds: this.context.funds
         }
-
-        PortfolioApiService.patchPortfolio(fundUpdate).then(r => {
-            PortfolioApiService.getPortfolio(port_id)
-                .then(this.context.setPortfolio)
-                .then()
-                .catch(this.context.setError)
-        })
-        this.context.clearFunds()
-        this.context.toggleAnalysis(true);
+        PortfolioApiService.patchPortfolio(fundUpdate)
+            .then(r => {
+                PortfolioApiService.getPortfolio(port_id)
+                    .then(this.context.setPortfolio)
+                    .then()
+                    .catch(this.context.setError)
+                this.context.toggleAnalysis(true);
+            })
     }
 
     handleEditInputChange = (event) => {
@@ -85,7 +106,6 @@ export default class AddEditPortfolio extends Component {
             }
             this.context.setAddFundDetail(fund)
         }
-
     }
 
     handleFileUploaded = (data) => {
@@ -104,13 +124,15 @@ export default class AddEditPortfolio extends Component {
     }
 
     renderAddEditPortfolio() {
-        const addPortfolio = !this.props.location.state
-
+        const addPortfolio = !this.props.location.state;
         return (<div className='add-edit-portfolio-container'>
                 <h2 className='add-edit-portfolio-title'>{addPortfolio ? 'Add Portfolio' : 'Edit Portfolio'}</h2>
                 {this.context.showFileLoader ?
                     <div className='cvs-fileupload-container'>
-                        <FileReader className='csv-input' fileUploaded={this.handleFileUploaded}/>
+                        <div className='add-port-step-upload'>
+                            <span className='add-port-num'>1</span>
+                            <FileReader fileUploaded={this.handleFileUploaded}/>
+                        </div>
                     </div> : <div></div>}
 
                 <form className='add-edit-portfolio-form'
@@ -120,13 +142,25 @@ export default class AddEditPortfolio extends Component {
                         <Section className='form-section'>
                             {!this.context.showAnalysis ?
                                 <div className='save-cancel-div'>
-                                    <Button className='event-button' type='submit'>Save</Button>
-                                    <Button className='event-button' onClick={this.handleCancel}
-                                            type='reset'>Cancel</Button>
+                                    <div className='add-port-step'>
+                                        <span className='add-port-num'>2</span> Assign Weights
+                                    </div>
+                                    <div className='save-cancel-buttons'>
+                                        <Button className='event-button' type='submit'>Save</Button>
+                                        <Button className='event-button' onClick={this.handleCancel}
+                                                type='reset'>Cancel</Button>
+                                    </div>
                                 </div>
                                 :
                                 <div className='analysis-div'>
-                                    <Button className='event-button' onClick={this.handleCancel}>Run Analysis</Button>
+                                    <Link to={{
+                                        pathname: `/analysis/${this.context.portfolio.port_id}`,
+                                        state: { port_id: this.context.portfolio.port_id },
+                                    }}>
+                                        <Button className='event-button btn-analysis' onClick={this.handleCancel}><span
+                                            className='add-port-num'>3</span>Run
+                                            Analysis</Button>
+                                    </Link>
                                 </div>
                             }
 
@@ -137,13 +171,19 @@ export default class AddEditPortfolio extends Component {
                                        onChange={addPortfolio ? this.handleAddInputChange : this.handleEditInputChange}
                                        required></Input>
                             </div>
-                            <ul id='fundlist' name='fundlist'>
+                            <ul id='fundlist' name='fundlist' className='fund-list'>
                                 {
                                     this.context.portfolio.funds.map((fund, idx) => {
+                                        let link = `http://www.google.com/search?q=${fund.ticker}+stock`
                                         return (
                                             <li className='add-edit-fund-container' key={fund.ticker}>
                                                 <div className='fund-name'>
-                                                    {fund.name}({fund.ticker})<br/>
+                                                  <span className='fund-details-span'><a className='fund-details-link'
+                                                                                         href={link} target='_blank'
+                                                                                         rel="noopener noreferrer">
+                                                        <FontAwesomeIcon icon="external-link-alt"
+                                                                         className='font-awesome-external-link'/>
+                                                      {fund.name} ({fund.ticker})</a></span>
                                                 </div>
                                                 <div className='fund-input-group'>
                                                     <div className='label-input'>

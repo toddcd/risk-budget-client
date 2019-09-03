@@ -13,7 +13,7 @@ export default class RegistrationForm extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const {full_name, user_name, password} = ev.target
+        const {full_name, user_name, password, email} = ev.target
 
         this.setState({error: null})
 
@@ -21,17 +21,18 @@ export default class RegistrationForm extends Component {
             user_name: user_name.value,
             password: password.value,
             full_name: full_name.value,
+            email: email.value,
         })
             .then(user => {
                 full_name.value = ''
                 user_name.value = ''
                 password.value = ''
+                email.value = ''
                 this.props.onRegistrationSuccess()
             })
             .catch(res => {
                 this.setState({error: res.error})
             })
-
     }
 
     render() {
@@ -76,6 +77,17 @@ export default class RegistrationForm extends Component {
                                type='password'
                                required
                                id='RegistrationForm__password'>
+                        </Input>
+                    </div>
+                    <div className='email'>
+                        <label htmlFor='RegistrationForm__email'>
+                            Email <Required/>
+                        </label>
+                        <Input className='register-input'
+                               name='email'
+                               type='email'
+                               required
+                               id='RegistrationForm__email'>
                         </Input>
                     </div>
                     <Button className='reg-button' type='submit'>

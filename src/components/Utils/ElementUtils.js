@@ -85,9 +85,9 @@ export function FileReader({className, ...props}) {
         <CSVReader
             cssClass="react-csv-input"
             cssInputClass="csv-input"
-            label="Select Portfolio CSV File"
+            label="Choose Assets"
             onFileLoaded={uploaded}
-            inputStyle={{padding: '10px'}}
+            inputStyle={{padding: '5px'}}
         />
     );
 }
@@ -106,7 +106,8 @@ function addFundMetaData(key, portfolio, col_id, col) {
     } else {
         key_name = key
     }
-    portfolio.funds[col_id - 1][key_name] = col
+    //portfolio.funds[col_id - 1][key_name] = (key_name === 'name' ? col : (col * 100).toFixed(3))
+    portfolio.funds[col_id - 1][key_name] = (key_name === 'name' ? col : col)
 }
 
 function addFundPerfData(key, portfolio, col_id, col) {
