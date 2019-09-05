@@ -1,6 +1,8 @@
 Risk Budgeting Tool
 
-https://td3-riskbudget.now.sh/
+Demo: https://td3-riskbudget.now.sh/
+
+Client api: https://github.com/toddcd/risk-budget-api
 
 Risk budgeting is a portfolio construction method where capital is allocated based on an individual assets risk and return contributions as it relates to other funds in the portfolio and the over-all investment strategy.
 
