@@ -56,7 +56,10 @@ export default class AddEditPortfolio extends Component {
                 const port = this.context.portfolio
                 port.port_id = res.port_id
                 this.context.setPortfolio(port)
-            })
+            }).catch(err => {
+                console.log(err)
+        })
+
         this.context.toggleAnalysis(true);
     }
 

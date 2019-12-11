@@ -56,7 +56,7 @@ export default class BicycleGalleryPage extends Component {
             )
         } else {
             return (
-                <Link to={`/collection/newPortfolio`} >
+                <Link to={`/collection/new-portfolio`} >
                     <Button className='Button'>Add Portfolio</Button>
                 </Link>
             )
