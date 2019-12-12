@@ -13,6 +13,7 @@ import AddEditPortfolio from "../PortfolioCollection/AddEditPortfolio";
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css';
 import PortfolioCollectionContext from "../../context/PortfolioCollectionContext";
+import PortfolioBuilderPage from "../../routes/PortfolioBuilder/PortfolioBuilderPage";
 
 class App extends Component {
     state = {hasError: false}
@@ -47,6 +48,11 @@ class App extends Component {
                                 exact
                                 path={'/login'}
                                 component={LoginPage}
+                            />
+                            <PublicOnlyRoute
+                                exact
+                                path={'/portbuilder'}
+                                component={PortfolioBuilderPage}
                             />
                             <PublicOnlyRoute
                                 exact

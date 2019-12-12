@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import { Button, Input, Required } from '../Utils/ElementUtils'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
+import {Button, TextField, Grid, Link} from "@material-ui/core";
 
 export default class RegistrationForm extends Component {
     static defaultProps = {
@@ -46,53 +46,73 @@ export default class RegistrationForm extends Component {
                     <div role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
-                    <div className='full_name'>
-                        <label htmlFor='RegistrationForm__full_name'>
-                            Full name <Required/>
-                        </label>
-                        <Input className='register-input'
-                               name='full_name'
-                               type='text'
-                               required
-                               id='RegistrationForm__full_name'>
-                        </Input>
+                    <div>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            //fullWidth
+                            id="RegistrationForm__full_name"
+                            label="Full Name"
+                            name="full_name"
+                            autoFocus
+                            style={{ backgroundColor: '#fff' }}
+                        />
                     </div>
-                    <div className='user_name'>
-                        <label htmlFor='RegistrationForm__user_name'>
-                            User name <Required/>
-                        </label>
-                        <Input className='register-input'
-                               name='user_name'
-                               type='text'
-                               required
-                               id='RegistrationForm__user_name'>
-                        </Input>
+                    <div>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            //fullWidth
+                            id="RegistrationForm__user_name"
+                            label="User Name"
+                            name="user_name"
+                            style={{ backgroundColor: '#fff' }}
+                        />
                     </div>
-                    <div className='password'>
-                        <label htmlFor='RegistrationForm__password'>
-                            Password <Required/>
-                        </label>
-                        <Input className='register-input'
-                               name='password'
-                               type='password'
-                               required
-                               id='RegistrationForm__password'>
-                        </Input>
+                    <div>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            //fullWidth
+                            id="RegistrationForm__password"
+                            label="Password"
+                            name="password"
+                            type='password'
+                            style={{ backgroundColor: '#fff' }}
+                        />
                     </div>
                     <div className='email'>
-                        <label htmlFor='RegistrationForm__email'>
-                            Email <Required/>
-                        </label>
-                        <Input className='register-input'
-                               name='email'
-                               type='email'
-                               required
-                               id='RegistrationForm__email'>
-                        </Input>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            //fullWidth
+                            id="RegistrationForm__email"
+                            label="Email"
+                            name="email"
+                            style={{ backgroundColor: '#fff' }}
+                        />
                     </div>
-                    <Button className='reg-button' type='submit'>
+                    <Button type="submit"
+                        // fullWidth
+                            variant="contained"
+                            color="primary"
+                        // className={classes.submit}
+                    >
                         Register
                     </Button>
+                    <div className='grid-style'>
+                        <Grid container direction="column" alignItems="center">
+                            <Grid item>
+                                <Link href="/login" variant="body2">
+                                    {"Already have an account? Login"}
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </div>
                 </form>
             </div>
         )
