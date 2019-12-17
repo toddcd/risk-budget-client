@@ -13,9 +13,3 @@
     color: red;
 }
 
-.grid-style {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin: 20px 0 0 0;
-}

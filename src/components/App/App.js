@@ -51,13 +51,13 @@ class App extends Component {
                             />
                             <PublicOnlyRoute
                                 exact
-                                path={'/portbuilder'}
-                                component={PortfolioBuilderPage}
-                            />
-                            <PublicOnlyRoute
-                                exact
                                 path={'/register'}
                                 component={RegistrationPage}
+                            />
+                            <PrivateRoute
+                                exact
+                                path={'/portbuilder'}
+                                component={PortfolioBuilderPage}
                             />
                             <PrivateRoute
                                 exact

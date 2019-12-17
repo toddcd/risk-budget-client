@@ -3,10 +3,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FundAutocomplete from "../FundSelector/FundAutocomplete";
 import '../FundSelector/FundSelector.css'
+import {Button, Grid, Link, TextField, Box} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -38,26 +38,94 @@ function getStepContent(stepIndex) {
     }
 }
 
-export default function HorizontalLabelPositionBelowStepper() {
-    const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const steps = getSteps();
+export default function HorizontalLabelPositionBelowStepper(props) {
 
-    const getFundValues = (e) => {
-        console.log('CHANGED')
-    }
+    const classes = useStyles();
+    const [activeStep,
+        setActiveStep] = React.useState(0);
+    const steps = getSteps();
 
     const handleNext = () => {
         setActiveStep(prevActiveStep => prevActiveStep + 1);
+        console.log(props.fundTags)
     };
 
     const handleBack = () => {
         setActiveStep(prevActiveStep => prevActiveStep - 1);
+
     };
 
     const handleReset = () => {
         setActiveStep(0);
     };
+
+    const getCurrentStepComp = (step) => {
+        switch (step) {
+            case 0:
+                return (<FundAutocomplete handleFundsChanged={props.handleFundsChanged}
+                                          fundTags={props.fundTags}/>);
+            case 1:
+                return (<ul> {props.fundTags.map(tag => {
+                    return (<li key={tag.ticker} style={{listStyleType: 'none'}}>
+                        <Grid container direction="row" alignItems="center">
+                            <Grid item>
+                                <TextField
+                                    variant="standard"
+                                    margin="normal"
+                                    disabled
+                                    id="fund_weight"
+                                    label={tag.fund}
+                                    name="name"
+                                    color='red'
+                                    style={{width: 250}}
+                                />
+                            </Grid>
+                            <Grid item>
+                                <Grid container direction="row" alignItems="center">
+                                    <Grid item>
+                                        <TextField
+                                            variant="standard"
+                                            margin="normal"
+                                            required
+                                            id="fund_weight"
+                                            label="Weight"
+                                            name="weight"
+                                            style={{width: 75}}
+                                        />
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField
+                                            variant="standard"
+                                            margin="normal"
+                                            required
+                                            id="fund_risk"
+                                            label="Risk"
+                                            name="risk"
+                                            style={{width: 75}}
+                                        />
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField
+                                            variant="standard"
+                                            margin="normal"
+                                            required
+                                            id="fund_return"
+                                            label="Return"
+                                            name="return"
+                                            style={{width: 75}}
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </li>)
+                })}</ul>);
+            case 2:
+                return `<div>SAVE</div>`;
+            default:
+                return 'Unknown stepIndex';
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -78,13 +146,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                     <div>
                         <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
                         <div className='fund-selector'>
-                            {activeStep === 0 ?
-                                <FundAutocomplete /> :
-                                <div>
-                                    LIST OF FUNDS
-                                </div>
-                            }
-
+                            {getCurrentStepComp(activeStep)}
                         </div>
                         <div>
                             <Button

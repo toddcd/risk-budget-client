@@ -22,20 +22,27 @@ export default class AnalysisGrid extends Component {
                     headerName: "Relative Contribution",
                     children:
                         [
-                            {headerName: "Risk", field: "budget_data.rel_cont_risk", minWidth: 60},
-                            {headerName: "Return", field: "budget_data.rel_cont_return", minWidth: 60},
+                            {headerName: "Risk", field: "budget_data.rel_cont_risk", cellRenderer: this.roundDecimalCellRenderer, minWidth: 60},
+                            {headerName: "Return", field: "budget_data.rel_cont_return", cellRenderer: this.roundDecimalCellRenderer, minWidth: 60},
                         ]
                 },
                 {headerName: "Ticker", field: "ticker", minWidth: 100},
-                {headerName: "Stand Dev", field: "budget_data.sa_std_dev", minWidth: 100},
-                {headerName: "Return", field: "budget_data.return", minWidth: 100},
-                {headerName: "Marginal Risk", field: "budget_data.mctr", minWidth: 100},
-                {headerName: "Absolute Risk", field: "budget_data.abs_cont_risk", minWidth: 100},
-                {headerName: "Absolute Return", field: "budget_data.abs_cont_return", minWidth: 100},
+                {headerName: "Stand Dev", field: "budget_data.sa_std_dev", cellRenderer: this.roundDecimalCellRenderer, minWidth: 100},
+                {headerName: "Return", field: "budget_data.return", cellRenderer: this.roundDecimalCellRenderer, minWidth: 100},
+                {headerName: "Marginal Risk", field: "budget_data.mctr", cellRenderer: this.roundDecimalCellRenderer, minWidth: 100},
+                {headerName: "Absolute Risk", field: "budget_data.abs_cont_risk", cellRenderer: this.roundDecimalCellRenderer, minWidth: 100},
+                {headerName: "Absolute Return", field: "budget_data.abs_cont_return", cellRenderer: this.roundDecimalCellRenderer, minWidth: 100},
                 {headerName: "Rel-Return - Rel-Risk", field: "budget_data.relrisk_relreturn", minWidth: 100},
-            ]
+            ],
+            components: {
+                roundDecimalCellRenderer: this.roundDecimalCellRenderer,
+            }
         }
     }
+
+    roundDecimalCellRenderer = (param) => {
+        return param.value.toFixed(4);
+    };
 
     onGridSizeChanged = (params) => {
         //let gridWidth = document.getElementById("grid-wrapper").offsetWidth;

@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
-//import CustomizedHook from "../TypeAhead/FundSelector";
 import PortfolioBuildStepper from "../PortfolioBuildStepper/PortfolioBuildStepper";
-//import PortStepper from "../PortfolioBuildStepper/PortStepper";
 
 class PortfolioBuilderForm extends Component {
+
+    state = {
+        fundTags: [],
+    }
+
+    handleFundsChanged = (e) => {
+        this.setState({...this.state, fundTags: e})
+    }
+
+    handleAssignWeights = (e) => {
+        return this.state.fundTags;
+    }
+
     render() {
         return (
             <div>
-                <PortfolioBuildStepper/>
+                <PortfolioBuildStepper handleFundsChanged={this.handleFundsChanged}
+                                       fundTags={this.state.fundTags}/>
             </div>
         );
     }

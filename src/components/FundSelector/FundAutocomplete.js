@@ -6,9 +6,8 @@ class FundAutocomplete extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tags: []
+            fundTags: props.fundTags
         };
-        //this.onTagsChange = this.onTagsChange.bind(this);
     }
 
     useStyles = makeStyles(theme => ({
@@ -24,33 +23,31 @@ class FundAutocomplete extends Component {
 
     onTagsChange = (event, values) => {
         this.setState({
-            tags: values
+            fundTags: values
         }, () => {
             // This will output an array of objects
             // given by Autocompelte options property.
-            console.log(this.state.tags);
+            this.props.handleFundsChanged(this.state.fundTags)
         });
     }
 
     render() {
-
         return (
             <div style={{ width: 500 }}>
                 <Autocomplete
                     multiple
                     options={fundAndTickers}
                     getOptionLabel={option => option.fund}
-                    defaultValue={[]}
+                    defaultValue={this.state.fundTags}
                     onChange={this.onTagsChange}
                     renderInput={params => (
                         <TextField
                             {...params}
-                            variant="outlined"
+                            variant="standard"
                             label="Select Funds"
                             //placeholder="Select Funds"
                             margin="normal"
                             fullWidth
-                            style={{ backgroundColor: '#fff' }}
                         />
                     )}
                 />
