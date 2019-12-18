@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, makeStyles} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 
 class FundAutocomplete extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class FundAutocomplete extends Component {
                     defaultValue={this.state.fundTags}
                     onChange={this.onTagsChange}
                     renderInput={params => (
+                        <Box mr={2} ml={2}>
                         <TextField
                             {...params}
                             variant="standard"
@@ -49,6 +51,7 @@ class FundAutocomplete extends Component {
                             margin="normal"
                             fullWidth
                         />
+                        </Box>
                     )}
                 />
             </div>
