@@ -5,10 +5,16 @@ class PortfolioBuilderForm extends Component {
 
     state = {
         fundTags: [],
+        portfolio: []
     }
 
     handleFundsChanged = (e) => {
         this.setState({...this.state, fundTags: e})
+    }
+
+    handleSubmitPortfolio = (e) => {
+        console.log(e)
+        this.setState({...this.state, portfolio: e})
     }
 
     handleAssignWeights = (e) => {
@@ -19,6 +25,7 @@ class PortfolioBuilderForm extends Component {
         return (
             <div>
                 <PortfolioBuildStepper handleFundsChanged={this.handleFundsChanged}
+                                       handleSubmitPortfolio={this.handleSubmitPortfolio}
                                        fundTags={this.state.fundTags}/>
             </div>
         );

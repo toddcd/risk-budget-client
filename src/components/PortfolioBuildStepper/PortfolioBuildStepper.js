@@ -47,7 +47,6 @@ export default function HorizontalLabelPositionBelowStepper(props) {
 
     const handleNext = () => {
         setActiveStep(prevActiveStep => prevActiveStep + 1);
-        console.log(props.fundTags)
     };
 
     const handleBack = () => {
@@ -65,7 +64,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                 return (<FundAutocomplete handleFundsChanged={props.handleFundsChanged}
                                           fundTags={props.fundTags}/>);
             case 1:
-                return (
+                return (<form onSubmit={props.handleSubmitPortfolio}>
                     <ul> {props.fundTags.map(tag => {
                         return (<li key={tag.ticker} style={{listStyleType: 'none'}}>
                                 <Grid container
@@ -75,13 +74,14 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                                       spacing={2}
                                       wrap='wrap'
                                 >
-                                    <Box display='flex' flex='auto' wrap='wrap' mt={2} ml={0} mr={2}
+                                    <Box display='flex' flex='auto' wrap='wrap' mt={5} ml={0} mr={2}
                                          justifyContent='flex-start'>
                                         <Typography>
                                             {tag.fund}
                                         </Typography>
                                     </Box>
-                                    <Box display='flex' flex='auto' wrap="nowrap" ml={0} mr={3} justifyContent='flex-end'>
+                                    <Box display='flex' flex='auto' wrap="nowrap" mt={3} ml={0} mr={3}
+                                         justifyContent='flex-end'>
                                         <TextField
                                             variant="standard"
                                             required
@@ -110,7 +110,8 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                                 </Grid>
                             </li>
                         )
-                    })}</ul>)
+                    })}</ul>
+                </form>)
                     ;
             case
             2
