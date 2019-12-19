@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import FundAutocomplete from "../FundSelector/FundAutocomplete";
 import '../FundSelector/FundSelector.css'
 import {Button, Grid, Link, TextField, Box, Container} from "@material-ui/core";
+import EditPortfolioFundAttributes from "../PortfolioBuilder/EditPortfolioFundAttributes";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -64,58 +65,9 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                 return (<FundAutocomplete handleFundsChanged={props.handleFundsChanged}
                                           fundTags={props.fundTags}/>);
             case 1:
-                return (<form onSubmit={props.handleSubmitPortfolio}>
-                    <ul> {props.fundTags.map(tag => {
-                        return (<li key={tag.ticker} style={{listStyleType: 'none'}}>
-                                <Grid container
-                                      display="flex"
-                                      direction="row"
-                                      alignItems="center"
-                                      spacing={2}
-                                      wrap='wrap'
-                                >
-                                    <Box display='flex' flex='auto' wrap='wrap' mt={5} ml={0} mr={2}
-                                         justifyContent='flex-start'>
-                                        <Typography>
-                                            {tag.fund}
-                                        </Typography>
-                                    </Box>
-                                    <Box display='flex' flex='auto' wrap="nowrap" mt={3} ml={0} mr={3}
-                                         justifyContent='flex-end'>
-                                        <TextField
-                                            variant="standard"
-                                            required
-                                            id="fund_weight"
-                                            label="Weight"
-                                            name="weight"
-                                            style={{width: 75}}
-                                        />
-                                        <TextField
-                                            variant="standard"
-                                            required
-                                            id="fund_risk"
-                                            label="Risk"
-                                            name="risk"
-                                            style={{width: 75}}
-                                        />
-                                        <TextField
-                                            variant="standard"
-                                            required
-                                            id="fund_return"
-                                            label="Return"
-                                            name="return"
-                                            style={{width: 75}}
-                                        />
-                                    </Box>
-                                </Grid>
-                            </li>
-                        )
-                    })}</ul>
-                </form>)
-                    ;
-            case
-            2
-            :
+                return (<EditPortfolioFundAttributes handleSubmitPortfolio={props.handleSubmitPortfolio}
+                                                     fundTags={props.fundTags}/>);
+            case 2:
                 return `<div>SAVE</div>`;
             default:
                 return 'Unknown stepIndex';

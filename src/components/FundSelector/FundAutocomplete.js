@@ -1,7 +1,32 @@
 import React, {Component} from 'react';
 import { Autocomplete } from "@material-ui/lab";
-import { TextField, makeStyles} from "@material-ui/core";
+import { TextField, withStyles} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+
+const useStyles = theme => ({
+        tag: {
+            backgroundColor: "#6B87BF",
+            height: 24,
+            position: "relative",
+            zIndex: 0,
+            "& .MuiChip-label": {
+                color: "#fff"
+            },
+            "& .MuiChip-deleteIcon": {
+                color: "#99B5D8"
+            },
+            "&:after": {
+                content: '""',
+                right: 10,
+                top: 6,
+                height: 12,
+                width: 12,
+                position: "absolute",
+                backgroundColor: "white",
+                zIndex: -1
+            }
+        }
+});
 
 class FundAutocomplete extends Component {
     constructor(props) {
@@ -10,17 +35,6 @@ class FundAutocomplete extends Component {
             fundTags: props.fundTags
         };
     }
-
-    useStyles = makeStyles(theme => ({
-        tag: {
-            marginTop: 3,
-            height: 20,
-            padding: '.15em 4px',
-            fontWeight: 600,
-            lineHeight: '15px',
-            borderRadius: 2,
-        },
-    }));
 
     onTagsChange = (event, values) => {
         this.setState({
@@ -33,10 +47,13 @@ class FundAutocomplete extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
-            <div style={{ width: 500 }}>
+            <div  style={{ width: 500 }}>
                 <Autocomplete
                     multiple
+                    id="tags-standard"
+                    classes={{tag: classes.tag}}
                     options={fundAndTickers}
                     getOptionLabel={option => option.fund}
                     defaultValue={this.state.fundTags}
@@ -98,4 +115,4 @@ const fundAndTickers = [
 ];
 
 
-export default FundAutocomplete;
+export default withStyles(useStyles) (FundAutocomplete);
