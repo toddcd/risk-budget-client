@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "ag-grid": "^18.1.2",
-    "ag-grid-community": "^21.1.1",
+    "ag-grid-community": "^32.0.1",
     "ag-grid-react": "^21.1.0",
     "chart.js": "^2.8.0",
     "date-fns": "^2.0.1",
